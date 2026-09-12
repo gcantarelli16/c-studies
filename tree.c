@@ -1,13 +1,12 @@
 #include<stdlib.h>
 #include<stdio.h>
+#include<string.h>
 
 typedef struct no
 {
     int codigo;
     char nome[50];
-    struct no*next;
-    struct no*back;
-    struct no*bellow;
+    struct no *next, *back;
 } no;
 
 struct no *corrente, *auxiliar, *raiz;
@@ -20,72 +19,54 @@ void EnterData()
     scanf("%s", &corrente->nome);
 }
 
-void Encadeamento(){
-    int path = 0;
-    printf("\nInsira a direcao a ser encadeada...");
-    printf("\n[1] - Esquerda [2] - Direita [3] - Abaixo: ");
-    scanf("%d", &path);
-    switch(path) {
-        case 1:
-            if (auxiliar->back != NULL) {
-                auxiliar = auxiliar->back;
-                Encadeamento();
-            } else {
-            auxiliar->back = corrente;
-            break;
-            }
-        case 2:
-            if (auxiliar->next != NULL) {
-                auxiliar = auxiliar->next;
-                Encadeamento();
-            } else {
-            auxiliar->next = corrente;
-            break;
-            }
-        case 3:
-            if (auxiliar->bellow != NULL) {
-                auxiliar = auxiliar->bellow;
-                Encadeamento();
-            } else {
-            auxiliar->bellow = corrente;
-            break;
-            }
-        default:
-            printf("\nInsira uma opção válida!");
-            system("pause");
-            Encadeamento();
-            break;
-    }
-}
-
 void Inserir()
 {
     corrente = (no*)malloc(sizeof(no));
     corrente->next = NULL;
     corrente->back = NULL;
-    corrente->bellow = NULL;
-
     EnterData();
 
     if(raiz == NULL)
     {
         raiz = corrente;
         auxiliar = corrente;
+        printf("\n Elemento alocado na Raiz da arvore \n");
+        system("pause");
     }
     else
     {
+        int aloca = 0;
         auxiliar = raiz;
-        Encadeamento();
+        while (aloca == 0) {
+            if (auxiliar->codigo > corrente->codigo) {
+                if (auxiliar->back == NULL) {
+                    auxiliar->back = corrente;
+                    printf("\n Elemento alocado na esquerda da arvore \n");
+                    system("pause");
+                    aloca = 1;
+                } else {
+                    auxiliar = auxiliar->back;
+                }
+            } else if (auxiliar->codigo < corrente->codigo){
+                if (auxiliar->next == NULL) {
+                    auxiliar->next = corrente;
+                    printf("\n Elemento alocado na direita da arvore \n");
+                    system("pause");
+                    aloca = 1;
+                } else {
+                    auxiliar = auxiliar->next;
+                }
+            } else {
+                printf("Chave duplicada");
+                system("pause");
+                break;
+            }
+        }
     }
 }
 
-void Consulta() {
 
-}
-
-
-
-int main ()
+int main()
 {
     auxiliar = NULL;
     corrente = NULL;
@@ -97,42 +78,34 @@ int main ()
     {
         system("cls");
 
-        printf("\n======================================================");
-        printf("\n Estrutura de dados - Arvore");
-        printf("\n======================================================");
-        printf("\n 1 - Inserir");
-        printf("\n 2 - Consulta");
-        printf("\n 6 - Sair\n");
-        printf("======================================================\n");
+        printf("\n======================");
+        printf("\n Estrutura de dados");
+        printf("\n======================");
+        printf("\n 1 - Inserir Dados");
+        printf("\n 7 - Sair");
+        printf("\n======================");
+
         printf("\nEscolha uma opcao: ");
         scanf("%d", &op);
         getchar();
 
-        switch (op)
+        switch(op)
         {
-        case 1:
-            Inserir();
-            break;
+            case 1:
+                Inserir();
+                break;
 
-        case 2:
-            break;
+            case 7:
+                printf("\n Saindo do sistema... \n");
+                break;
 
-
-        case 3:
-            break;
-
-        case 6:
-            printf("\nSaindo do sistema...\n");
-            break;
-
-        default:
-            printf("\nOpção invalida!\n");
-            system("pause");
+            default:
+                printf("\nOpcao invalida!\n");
+                system("pause");
         }
 
-    }
-    while (op != 6);
+    } while(op != 6);
 
-    return 0 ;
+    return 0;
 }
 
