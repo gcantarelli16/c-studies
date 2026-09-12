@@ -1,26 +1,32 @@
-# Linked List in C
+# C Studies
 
-A simple implementation of a singly linked list in C, developed during my studies of Data Structures.
+A collection of exercises and projects developed during my studies of the C programming language.
 
-## Features
+## Topics
 
-* Insert records
-* Insert records sorted by name
-* Display all records
-* Search for a record by code
-* Delete records
-
-## Concepts Practiced
-
+* Programming fundamentals
 * Structs
 * Pointers
 * Dynamic memory allocation
-* `malloc` and `free`
-* Singly linked lists
-* String manipulation
-* Searching and deleting elements
+* Linked lists
+* Queues
+* Stacks
+* Binary search trees
 * Functions
+* Algorithms and data structures
+
+## Data Structures
+
+* Singly Linked List
+* Linked Queue
+* Stack
+* Binary Search Tree
+* Doubly Linked List
 
 ## Language
 
 * C
+
+## About
+
+This repository contains projects and exercises developed throughout my studies, documenting my progress and practice with the C programming language.
