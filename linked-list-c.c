@@ -125,7 +125,7 @@ void exibir(){
     corrente = inicio;
 
     if (inicio == NULL){
-        printf("\nA lista n„o tem dados");
+        printf("\nA lista n√£o tem dados");
         return;
     }
 
@@ -153,7 +153,7 @@ void consultar(){
     corrente = inicio;
 
     if (inicio == NULL){
-        printf("\nA lista n„o tem dados");
+        printf("\nA lista n√£o tem dados");
         return;
     }
 
@@ -171,7 +171,7 @@ void consultar(){
     }
 
     if (!achou){
-        printf("esse dado n„o existe\n");
+        printf("esse dado n√£o existe\n");
     }
 
 
@@ -190,7 +190,7 @@ void excluir(){
     auxiliar = NULL;
 
     if (inicio == NULL){
-        printf("\nA lista n„o tem dados");
+        printf("\nA lista n√£o tem dados");
         return;
     }
 
@@ -222,7 +222,7 @@ void excluir(){
     }
 
     if (!achou){
-        printf("esse dado n„o existe\n");
+        printf("esse dado n√£o existe\n");
     }
 
 }
